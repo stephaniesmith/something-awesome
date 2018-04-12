@@ -10,7 +10,7 @@ MongoClient.connect(url)
             // .find()
             // .toArray();
             .update({
-                _id: ObjectId("5acfd83439e3c4fae656cc3b"),
+                _id: ObjectId('5acfd83439e3c4fae656cc3b'),
             }, {
                 $set: {
                     toy: 'sparklers'
