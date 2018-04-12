@@ -1,15 +1,23 @@
 const MongoClient = require('mongodb').MongoClient;
 
-const url = 'mongodb://localhost:27017/test';
-let db = null;
+const url = 'mongodb://localhost:27017/somethingAwesome';
+let client = null;
 MongoClient.connect(url)
-    .then(_db => {
-        db = _db;
-        //
+    .then(_client => {
+        client = _client;
+        const db = client.db();
+        return db.collection('unicorns')
+            .find()
+            .toArray();
+    })
+    .then(unicorns => {
+        console.log(
+            JSON.stringify(unicorns, true, 2)
+        );
     })
     .catch(err => {
         console.log('FAIL!', err);
     })
     .then(() => {
-        db.close();
+        client.close();
     });
