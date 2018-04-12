@@ -9,13 +9,15 @@ MongoClient.connect(url)
         return db.collection('unicorns')
             // .find()
             // .toArray();
-            .update({
-                _id: ObjectId('5acfd83439e3c4fae656cc3b'),
-            }, {
-                $set: {
-                    toy: 'sparklers'
-                }   
-            });
+            // .insert({ name: 'coffee' })
+            // .update({
+            //     _id: ObjectId('5acfd83439e3c4fae656cc3b'),
+            // }, {
+            //     $set: {
+            //         toy: 'sparklers'
+            //     }   
+            // });
+            .remove({ _id : ObjectId('5acfd7dc39e3c4fae656cc3a') });
     })
     .then(unicorns => {
         console.log(
